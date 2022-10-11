@@ -1,8 +1,16 @@
 # philosophers
 make && ./philo arg1 arg2 arg3 arg4 arg5
-(Youtube playlist about threads were I learned from)[https://www.youtube.com/playlist?list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2]
-(Youtube video about breaking down the problem)[https://www.youtube.com/watch?v=NbwbQQB7xNQ]
-(Another youtube video about breaking down the problem)[https://www.youtube.com/watch?v=dOVdsd31WNg]
+
+
+[Youtube playlist about threads were I learned from](https://www.youtube.com/playlist?list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2)
+
+
+[Youtube video about breaking down the problem](https://www.youtube.com/watch?v=NbwbQQB7xNQ)
+
+
+[Another youtube video about breaking down the problem](https://www.youtube.com/watch?v=dOVdsd31WNg)
+
+
 # Get familiar with the subject
 - chaque philosophe est un **thread**, et chaque fourchette est un **mutex**
 - ils font dans l'ordre : manger - dormir - penser (ils pensent pas vraiment, ils attendent d'avoir leurs fourchettes pour manger)
