@@ -6,11 +6,11 @@
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:49:19 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/10/11 17:07:09 by anshimiy         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:50:14 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philo.h"
 
 //pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 typedef	struct              s_p

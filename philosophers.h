@@ -6,12 +6,12 @@
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 20:08:22 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/10/11 17:42:59 by anshimiy         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:50:20 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILOSOPHERS_H
-#define PHILOSOPHERS_H
+#ifndef PHILO_H
+#define PHILO_H
 
 #include <unistd.h>
 #include <stdlib.h>
