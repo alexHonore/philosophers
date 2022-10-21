@@ -6,7 +6,7 @@
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 14:30:19 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/10/20 20:08:38 by anshimiy         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:43:10 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	init_table(t_table *table)
     int i;
 
     i = 0;
+    table->run = 0;
     table->arg.start_time = actual_time();
 	table->arg.stop_sig = 0;
 	table->arg.nb_philos_finish_eat = 0;

@@ -6,7 +6,7 @@
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 20:08:22 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/10/20 20:09:03 by anshimiy         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:42:46 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_table
 {
 	t_philo					*philos;
 	t_arg					arg;
+	int						run;
 }							t_table;
 
 int				parse_args(int argc, char **argv, t_table *table);

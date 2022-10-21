@@ -6,7 +6,7 @@
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 16:20:39 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/10/20 20:29:19 by anshimiy         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:29:11 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,27 @@ void	*is_dead(void	*data)
 
 void	*thread(void *data)
 {
-    t_philo     *philos;
+    t_philo     *philo;
 
-    philos = (t_philo *)data;
-    if (philos->id % 2 == 0)
-		ft_usleep(philos->arg->time_to_eat / 10);
-	while (!check_death(philos, 0))
+    philo = (t_philo *)data;
+    if (philo->id % 2 == 0)
+		ft_usleep(philo->arg->time_to_eat / 10);
+	while (!check_death(philo, 0))
 	{
-		pthread_create(&philos->thread_death_id, NULL, is_dead, data);
-		activity(philos);
-		pthread_detach(philos->thread_death_id);
-		if ((int)++philos->nb_ate == philos->arg->must_eat)
+		pthread_create(&philo->thread_death_id, NULL, is_dead, data);
+		activity(philo);
+		pthread_detach(philo->thread_death_id);
+		if ((int)++philo->nb_ate == philo->arg->must_eat)
 		{
-			pthread_mutex_lock(&philos->arg->finish);
-			philos->finish_eat = 1;
-			philos->arg->nb_philos_finish_eat++;
-			if (philos->arg->nb_philos_finish_eat == philos->arg->total_philos)
+			pthread_mutex_lock(&philo->arg->finish);
+			philo->finish_eat = 1;
+			philo->arg->nb_philos_finish_eat++;
+			if (philo->arg->nb_philos_finish_eat == philo->arg->total_philos)
 			{
-				pthread_mutex_unlock(&philos->arg->finish);
-				check_death(philos, 2);
+				pthread_mutex_unlock(&philo->arg->finish);
+				check_death(philo, 2);
 			}
-			pthread_mutex_unlock(&philos->arg->finish);
+			pthread_mutex_unlock(&philo->arg->finish);
 			return (NULL);
 		}
 	}
@@ -69,8 +69,10 @@ int	create_thread(t_table *table)
     int i;
 
     i = 0;
-    while (i < table->arg.total_philos)
+    while (i < table->arg.total_philos && table->arg.stop_sig == 0)
     {
+		//printf("\n\n--- %d ---\n\n", table->arg.stop_sig);
+		//ft_usleep(10);
         table->philos[i].arg = &table->arg;
         if (pthread_create(&table->philos[i].thread_id, NULL, thread, &table->philos[i]) != 0)
             return (throw_error("Cannot create threads", 0));
