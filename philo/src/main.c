@@ -6,13 +6,14 @@
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 00:59:09 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/10/27 00:59:10 by anshimiy         ###   ########.fr       */
+/*   Updated: 2022/10/27 01:08:02 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	check_death2(t_table *table)
+// check if stop_sig == 0 or not (1/2), if stop_sig == 0, it returns 0 otherwise, 1
+int	table_over(t_table *table)
 {
 	pthread_mutex_lock(&table->arg.dead);
 	if (table->arg.stop_sig)
@@ -29,7 +30,7 @@ void	stop(t_table *table)
 	int	i;
 
 	i = -1;
-	while (!check_death2(table))
+	while (!table_over(table))
 		ft_usleep(1);
 	while (++i < table->arg.total_philos)
 		pthread_join(table->philos[i].thread_id, NULL);

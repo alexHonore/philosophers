@@ -6,12 +6,16 @@
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 00:58:59 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/10/27 00:59:00 by anshimiy         ###   ########.fr       */
+/*   Updated: 2022/10/27 01:14:44 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
+//	update the table's stop_sig status and mutex lock it.
+//	i = 0 means everything is good.
+//	i = 1 means a philo is dead.
+//	i = 2 means philos finished eating must_eat times.
 int	check_death(t_philo *philos, int i)
 {
 	pthread_mutex_lock(&philos->philo_arg->dead);
