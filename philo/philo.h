@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 20:08:22 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/10/21 12:42:46 by anshimiy         ###   ########.fr       */
+/*   Created: 2022/10/27 00:59:17 by anshimiy          #+#    #+#             */
+/*   Updated: 2022/10/27 00:59:18 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
-#define PHILO_H
+# define PHILO_H
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <pthread.h>
-#include "my_lib/mylib.h"
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
 # include <sys/time.h>
+# include <pthread.h>
+# include "./my_lib/mylib.h"
 
-// stop_sig = // 0 if none philosopher is dead, 1 if a philosopher is dead, 2 if all philosophers ate m_eat times
+// stop_sig = // 0 if none philosopher is dead, 1 if a philosopher is dead, 2 if all philosophers ate must_eat times
 typedef struct s_arg
 {
 	int						total_philos;
@@ -34,9 +34,10 @@ typedef struct s_arg
 	pthread_mutex_t			time_eat;
 	pthread_mutex_t			finish;
 	int						nb_philos_finish_eat;
-	int						stop_sig; 
+	int						stop_sig;
 }							t_arg;
 
+// finish_eat 1 when a philosopher ate must_eat times, if not, 0
 typedef struct s_philo
 {
 	int						id;
@@ -44,28 +45,25 @@ typedef struct s_philo
 	pthread_t				thread_death_id;
 	pthread_mutex_t			*right_fork;
 	pthread_mutex_t			left_fork;
-	t_arg					*arg;
+	t_arg					*philo_arg;
 	long int				ms_last_eat;
 	unsigned int			nb_ate;
 	int						finish_eat;
 }							t_philo;
 
-//  philos = array of philosopher
-typedef struct s_table
+typedef struct s_p
 {
 	t_philo					*philos;
 	t_arg					arg;
-	int						run;
 }							t_table;
 
 int				parse_args(int argc, char **argv, t_table *table);
-int				ft_exit(char *str);
+int				init_table(t_table *table);
 void			write_status(char *str, t_philo *philos);
 long int		actual_time(void);
-void			ft_putstright_forkd(char *s, int fd);
 void			ft_usleep(long int time_in_ms);
-int				init_table(t_table *table);
-int				create_thread(t_table *table);
+int				create_threads(t_table *table);
 void			activity(t_philo *philos);
 int				check_death(t_philo *philos, int i);
+
 #endif

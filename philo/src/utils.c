@@ -5,25 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 15:17:49 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/10/12 17:07:27 by anshimiy         ###   ########.fr       */
+/*   Created: 2022/10/27 00:58:59 by anshimiy          #+#    #+#             */
+/*   Updated: 2022/10/27 00:59:00 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-// check t_arg comments
 int	check_death(t_philo *philos, int i)
 {
-	pthread_mutex_lock(&philos->arg->dead);
+	pthread_mutex_lock(&philos->philo_arg->dead);
 	if (i)
-		philos->arg->stop_sig = i;
-	if (philos->arg->stop_sig)
+		philos->philo_arg->stop_sig = i;
+	if (philos->philo_arg->stop_sig)
 	{
-		pthread_mutex_unlock(&philos->arg->dead);
+		pthread_mutex_unlock(&philos->philo_arg->dead);
 		return (1);
 	}
-	pthread_mutex_unlock(&philos->arg->dead);
+	pthread_mutex_unlock(&philos->philo_arg->dead);
 	return (0);
 }
 
@@ -34,7 +33,7 @@ long int	actual_time(void)
 
 	time = 0;
 	if (gettimeofday(&current_time, NULL) == -1)
-		throw_error("Gettimeofday returned -1", 0);
+		throw_error("Gettimeofday returned -1\n", -1);
 	time = (current_time.tv_sec * 1000) + (current_time.tv_usec / 1000);
 	return (time);
 }

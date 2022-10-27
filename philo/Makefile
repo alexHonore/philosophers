@@ -6,7 +6,7 @@
 #    By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 20:03:26 by anshimiy          #+#    #+#              #
-#    Updated: 2022/10/20 20:13:14 by anshimiy         ###   ########.fr        #
+#    Updated: 2022/10/27 00:36:01 by anshimiy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ all: $(NAME)
 $(NAME):	$(OBJS)
 	make -C ./my_lib
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) ./my_lib/mylib.a
-
 
 clean: 
 	$(MAKE) -C ./my_lib clean
