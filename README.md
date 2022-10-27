@@ -11,6 +11,9 @@ make && ./philo arg1 arg2 arg3 arg4 arg5
 [Another youtube video about breaking down the problem](https://www.youtube.com/watch?v=dOVdsd31WNg)
 
 
+[Inspired from](https://github.com/iciamyplant/Philosophers)
+
+
 # Get familiar with the subject
 - chaque philosophe est un **thread**, et chaque fourchette est un **mutex**
 - ils font dans l'ordre : manger - dormir - penser (ils pensent pas vraiment, ils attendent d'avoir leurs fourchettes pour manger)
