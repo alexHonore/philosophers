@@ -6,7 +6,7 @@
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 00:59:17 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/10/27 00:59:18 by anshimiy         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:20:21 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,15 @@
 # include <stdlib.h>
 # include <sys/time.h>
 # include <pthread.h>
-# include "./my_lib/mylib.h"
+# include "./includes/my_lib/mylib.h"
 
-// stop_sig = // 0 if none philosopher is dead, 1 if a philosopher is dead, 2 if all philosophers ate must_eat times
+// stop_sig = // 0 if none philosopher is dead, 1 if a philosopher
+// is dead, 2 if all philosophers ate must_eat times
+//
+// write_mutex: a mutex to protect the message to write
+// dead: a mutex to verify the death
+// time_eat: a mutex to set the time a philo ate
+// finish: a mutex to verify is philos finished
 typedef struct s_arg
 {
 	int						total_philos;

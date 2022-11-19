@@ -6,7 +6,7 @@
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 00:59:06 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/10/27 00:59:07 by anshimiy         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:08:16 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	write_status(char *str, t_philo *philos)
 {
 	long int		time;
 
-	time = -1;
 	time = actual_time() - philos->philo_arg->start_time;
 	if (time >= 0 && time <= 2147483647 && !check_death(philos, 0))
 	{
@@ -25,6 +24,9 @@ void	write_status(char *str, t_philo *philos)
 	}
 }
 
+/*
+	Continuation of activity() for norm reasons
+*/
 void	sleep_think(t_philo *philos)
 {
 	pthread_mutex_lock(&philos->philo_arg->write_mutex);
@@ -36,6 +38,10 @@ void	sleep_think(t_philo *philos)
 	pthread_mutex_unlock(&philos->philo_arg->write_mutex);
 }
 
+/*
+	Since the cylcle is the same, I write a linear way
+	the philo status by mutex_lock each situations
+*/
 void	activity(t_philo *philos)
 {
 	pthread_mutex_lock(&philos->left_fork);
