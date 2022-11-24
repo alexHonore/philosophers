@@ -6,7 +6,7 @@
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 00:59:06 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/11/19 18:08:16 by anshimiy         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:27:55 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	write_status(char *str, t_philo *philos)
 	if (time >= 0 && time <= 2147483647 && !check_death(philos, 0))
 	{
 		printf("%ld ", time);
-		printf("Philo %d %s", philos->id, str);
+		printf("%d %s", philos->id, str);
 	}
 }
 

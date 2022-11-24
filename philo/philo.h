@@ -6,7 +6,7 @@
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 00:59:17 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/11/19 18:20:21 by anshimiy         ###   ########.fr       */
+/*   Updated: 2022/11/23 18:14:27 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ void			ft_usleep(long int time_in_ms);
 int				create_threads(t_table *table);
 void			activity(t_philo *philos);
 int				check_death(t_philo *philos, int i);
+int				ft_death_watcher(t_table *table, t_philo *philos);
 
 #endif

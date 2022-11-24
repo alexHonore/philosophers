@@ -6,13 +6,13 @@
 /*   By: anshimiy <anshimiy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 00:59:09 by anshimiy          #+#    #+#             */
-/*   Updated: 2022/11/19 18:22:38 by anshimiy         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:27:42 by anshimiy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-// check if stop_sig == 0 or not (1/2), 
+// check if stop_sig == 0 or not (1/2),
 // if stop_sig == 0, it returns 0 otherwise, 1
 int	table_over(t_table *table)
 {
@@ -53,12 +53,12 @@ void	stop(t_table *table)
 	t_table	table: contains a t_philo array of philosophers and their arguments
 	if (!init_table(&table) || !create_threads(&table)): 
 		init the table 			make the threads 
-					 free philos after
+						free philos after
 	stop(&table): mutex_destroy & free everything
 */
 int	main(int argc, char **argv)
 {
-	t_table		table;
+	t_table	table;
 
 	if (!(parse_args(argc, argv, &table)))
 		return (throw_error("Invalid Arguments\n", -1));
